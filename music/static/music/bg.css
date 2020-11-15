@@ -1,0 +1,10 @@
+body{
+    background:url("/static/music/images/back.jpg") ;
+}
+
+.navbar{
+    border-radius:0;
+}
+.navbar-brand{
+    font-family:'Satisfy',cursive;
+}
