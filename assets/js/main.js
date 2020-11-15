@@ -229,7 +229,7 @@
 
 					// Set background position.
 						if (x = $image_img.data('position'))
-							$image.css('background-position', x);
+							$image.css('background-position', x-10);
 
 					// Hide original img.
 						$image_img.hide();
