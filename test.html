@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rol {
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100%;
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+
+        .one {
+            position: relative;
+            width: 48%;
+            height: 88%;
+            margin-right: 1%;
+            display: inline-block;
+        }
+
+        .one img {
+            width: 100%;
+            height: 80%;
+        }
+
+        .text {
+            position: absolute;
+            font-size: 18px;
+            color: #FFF;
+            top: 83%;
+            left: 5%;
+            /* width: 55%;
+      white-space: pre-wrap; */
+        }
+
+        .zol {
+            width: 100%;
+            height: 27%;
+            position: absolute;
+            top: 37%;
+            left: 0;
+        }
+
+        .videos {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 30%;
+            width: 92%;
+            z-index: 100;
+            transform: translate(-50%, -50%);
+        }
+
+        .vclose {
+            position: absolute;
+            right: 1%;
+            top: 1%;
+            border-radius: 100%;
+            width: 25px !important;
+            height: 25px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rol">
+        <div class="banner">
+            <div class="one"
+                vpath="images/thumbs/01.jpg"
+                ipath="images/fulls/demo2018m.mov">
+                <img src="images/thumbs/01.jpg"
+                    alt="1">
+            </div>
+            <div class="one"
+                vpath="images/thumbs/02.jpg"
+                ipath="images/fulls/demo2018m.mov">
+                <img src="images/thumbs/02.jpg"
+                    alt="2">
+            </div>
+        </div>
+        <div class="videos"></div>
+    </div>
+    <script src="http://cdn.suoluomei.com/common/js/jquery-2.1.4.min.js "></script>
+    <script>
+        $('.one').each(function () { //遍历视频列表
+            $(this).click(function () { //这个视频被点击后执行
+                var img = $(this).attr('vpath');//获取视频预览图
+                var video = $(this).attr('ipath');//获取视频路径
+                $('.videos').html("<video id=\"video\" poster='" + img + "' style='width: 100%;' src='" + video + "' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><img onClick=\"close1()\" class=\"vclose\" src=\"images/thumbs/01.jpg\"/>");
+                $('.videos').show();
+            });
+        });
+        function close1() {
+            var v = document.getElementById('video');//获取视频节点
+            $('.videos').css("display", "none");//点击关闭按钮关闭暂停视频
+            v.pause();
+            $('.videos').html();
+        }
+
+    </script>
+</body>
+
+</html>
